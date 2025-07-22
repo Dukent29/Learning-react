@@ -7,13 +7,13 @@ import styles from '../styles/SearchMovie.module.css'
 const SearchMovie = ({ placeholder = "Search movies..." }) => {
   const [query, setQuery] = useState('')
   const [searchResults, setSearchResults] = useState([])
-  const [popularMovies, setPopularMovies] = useState([]) // Add popular movies state
+  const [popularMovies, setPopularMovies] = useState([]) 
   const [loading, setLoading] = useState(false)
   const [showResults, setShowResults] = useState(false)
   const { addToWishlist, isInWishlist } = useWishlist()
-  const searchRef = useRef(null) // Add ref for the search container
+  const searchRef = useRef(null) 
 
-  // Load popular movies when component mounts
+
   useEffect(() => {
     const loadPopularMovies = async () => {
       try {

@@ -1,0 +1,374 @@
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem 2rem;
+  background-color: #090f20;
+}
+
+.hero {
+  text-align: center;
+  padding: 3rem 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 0 0 20px 20px;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0 0 1rem 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin: 0;
+  opacity: 0.9;
+}
+
+.movieSections {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+
+.categoryTabs {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem 0;
+  flex-wrap: wrap;
+}
+
+.categoryTab {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: white;
+  border: 2px solid #e0e0e0;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  color: #666;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.categoryTab:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  border-color: #007bff;
+}
+
+.categoryTab.activeTab {
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  color: white;
+  border-color: #007bff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+}
+
+.tabEmoji {
+  font-size: 1.2rem;
+}
+
+.tabLabel {
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+
+/* Active Section Styles */
+.activeSection {
+  margin: 2rem 0;
+  padding: 2rem;
+  background: #090f20;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.sectionHeader h2 {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #f3f3f3;
+}
+
+.paginationInfo {
+  color: #666;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.totalMovies {
+  color: #999;
+  font-size: 0.85rem;
+}
+
+/* Pagination Controls */
+.paginationControls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.paginationBtn {
+  padding: 0.75rem 1.5rem;
+  background: white;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  color: #666;
+  transition: all 0.3s ease;
+  min-width: 120px;
+}
+
+.paginationBtn:hover:not(:disabled) {
+  border-color: #007bff;
+  color: #007bff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2);
+}
+
+.paginationBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: #f8f9fa;
+}
+
+.pageNumbers {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.pageBtn {
+  width: 45px;
+  height: 45px;
+  border: 2px solid #e0e0e0;
+  background: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  color: #666;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pageBtn:hover {
+  border-color: #007bff;
+  color: #007bff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2);
+}
+
+.pageBtn.activePageBtn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-color: #667eea;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.pageBtn.activePageBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+}
+
+.ellipsis {
+  color: #999;
+  font-weight: bold;
+  padding: 0 0.5rem;
+}
+
+/* All Categories Toggle */
+.allCategoriesToggle {
+  text-align: center;
+  margin: 3rem 0 2rem 0;
+  padding: 1rem;
+
+}
+
+.allCategoriesToggle h2 {
+  color: #f3f3f3;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin: 0;
+  position: relative;
+}
+
+.allCategoriesToggle h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border-radius: 2px;
+}
+
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #007bff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading p {
+  color: #666;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.error p {
+  color: #dc3545;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.error button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.error button:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem 2rem;
+  }
+  
+  .hero {
+    margin: -1rem -1rem 2rem -1rem;
+    padding: 2rem 1rem;
+  }
+  
+  .hero h1 {
+    font-size: 2rem;
+  }
+  
+  .hero p {
+    font-size: 1rem;
+  }
+
+  /* Mobile Category Tabs */
+  .categoryTabs {
+    gap: 0.5rem;
+    margin: 1rem 0;
+  }
+
+  .categoryTab {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .tabLabel {
+    font-size: 0.85rem;
+  }
+
+  .tabEmoji {
+    font-size: 1rem;
+  }
+
+  .activeSection {
+    margin: 1rem 0;
+    padding: 1rem;
+  }
+
+  .allCategoriesToggle h2 {
+    font-size: 1.5rem;
+  }
+
+  /* Mobile Pagination */
+  .sectionHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .sectionHeader h2 {
+    font-size: 1.5rem;
+  }
+
+  .paginationControls {
+    gap: 0.5rem;
+    flex-direction: column;
+  }
+
+  .pageNumbers {
+    order: -1;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .paginationBtn {
+    min-width: 100px;
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .pageBtn {
+    width: 40px;
+    height: 40px;
+    font-size: 0.9rem;
+  }
+
+  .paginationInfo {
+    font-size: 0.85rem;
+  }
+}

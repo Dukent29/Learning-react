@@ -8,6 +8,10 @@ const Wishlist = () => {
 
   return (
     <div className={styles.container}>
+        <div className={styles.hero}>
+                <h1>❤️ My Movie Wishlist</h1>
+                <p>Your personal collection of must-watch movies</p>
+              </div>
       <div className={styles.header}>
         <h1>My Wishlist ({wishlist.length})</h1>
         {wishlist.length > 0 && (

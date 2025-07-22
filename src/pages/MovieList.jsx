@@ -16,7 +16,7 @@ const MovieList = () => {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
 
-  // Pagination configuration
+  
   const moviesPerPage = 20
 
   const categories = [
@@ -26,7 +26,6 @@ const MovieList = () => {
     { key: 'upcoming', label: '🎬 Upcoming', emoji: '🎬' }
   ]
 
-  // Pagination functions
   const getCurrentPageMovies = () => {
     const currentMovies = movieCategories[activeCategory] || []
     const startIndex = (currentPage - 1) * moviesPerPage
@@ -41,7 +40,6 @@ const MovieList = () => {
 
   const handlePageChange = (newPage) => {
     setCurrentPage(newPage)
-    // Scroll to top of active section
     document.querySelector(`.${styles.activeSection}`)?.scrollIntoView({ 
       behavior: 'smooth', 
       block: 'start' 
@@ -50,7 +48,7 @@ const MovieList = () => {
 
   const handleCategoryChange = (categoryKey) => {
     setActiveCategory(categoryKey)
-    setCurrentPage(1) // Reset to first page when changing category
+    setCurrentPage(1) 
   }
 
   useEffect(() => {
@@ -67,13 +65,11 @@ const MovieList = () => {
           }
           
           const responses = await Promise.all(pagePromises)
-          // Combine all results from different pages
           return responses.reduce((allMovies, response) => {
             return [...allMovies, ...(response.results || [])]
           }, [])
         }
 
-        // Fetch multiple pages for each category to get 60 movies each (3 pages × 20 movies)
         const [popular, nowPlaying, topRated, upcoming] = await Promise.all([
           fetchMultiplePages(movieAPI.getPopular, 3),
           fetchMultiplePages(movieAPI.getNowPlaying, 3),
@@ -131,7 +127,6 @@ const MovieList = () => {
 
       <SearchMovie placeholder="Search for movies..." />
 
-      {/* Category Tabs */}
       <div className={styles.categoryTabs}>
         {categories.map(category => (
           <button
@@ -162,7 +157,6 @@ const MovieList = () => {
           movies={getCurrentPageMovies()} 
         />
 
-        {/* Pagination Controls */}
         {getTotalPages() > 1 && (
           <div className={styles.paginationControls}>
             <button 
@@ -183,7 +177,6 @@ const MovieList = () => {
                   Math.abs(pageNum - currentPage) <= 2
 
                 if (!showPage) {
-                  // Show ellipsis
                   if (pageNum === currentPage - 3 || pageNum === currentPage + 3) {
                     return <span key={pageNum} className={styles.ellipsis}>...</span>
                   }
@@ -213,7 +206,6 @@ const MovieList = () => {
         )}
       </div>
 
-      {/* All Categories Section (Netflix Style) */}
       <div className={styles.allCategoriesToggle}>
         <h2>Browse All Categories</h2>
       </div>

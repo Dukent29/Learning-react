@@ -40,16 +40,16 @@ const SearchMovie = ({ placeholder = "Search movies..." }) => {
     }
   }, [])
 
-  // Debounce search function - now triggers on any input
+  
   useEffect(() => {
     const delayedSearch = setTimeout(() => {
-      if (query.trim().length > 0) { // Changed from > 2 to > 0
+      if (query.trim().length > 0) { 
         searchMovies(query)
       } else {
         setSearchResults([])
         setShowResults(false)
       }
-    }, 300) // Reduced delay from 500ms to 300ms for faster response
+    }, 300) 
 
     return () => clearTimeout(delayedSearch)
   }, [query])
@@ -58,7 +58,7 @@ const SearchMovie = ({ placeholder = "Search movies..." }) => {
     try {
       setLoading(true)
       const response = await movieAPI.searchMovies(searchQuery)
-      setSearchResults(response.results?.slice(0, 12) || []) // Increased from 8 to 12 results
+      setSearchResults(response.results?.slice(0, 12) || []) 
       setShowResults(true)
     } catch (error) {
       console.error('Error searching movies:', error)
@@ -74,7 +74,7 @@ const SearchMovie = ({ placeholder = "Search movies..." }) => {
 
   const handleInputFocus = () => {
     if (query.trim().length === 0 && popularMovies.length > 0) {
-      // Show popular movies when input is focused but empty
+      
       setSearchResults(popularMovies)
       setShowResults(true)
     } else if (searchResults.length > 0) {
@@ -83,8 +83,7 @@ const SearchMovie = ({ placeholder = "Search movies..." }) => {
   }
 
   const handleInputBlur = () => {
-    // Let click outside handler manage closing
-    // This prevents issues when clicking on search results
+    
   }
 
   const handleAddToWishlist = (movie, e) => {
@@ -95,7 +94,7 @@ const SearchMovie = ({ placeholder = "Search movies..." }) => {
 
   const clearSearch = () => {
     setQuery('')
-    // Show popular movies when search is cleared
+    
     if (popularMovies.length > 0) {
       setSearchResults(popularMovies)
       setShowResults(true)
@@ -133,7 +132,7 @@ const SearchMovie = ({ placeholder = "Search movies..." }) => {
         {showResults && (
           <div 
             className={styles.searchResults}
-            onMouseDown={(e) => e.preventDefault()} // Prevent blur when clicking on results
+            onMouseDown={(e) => e.preventDefault()} 
           >
             {loading ? (
               <div className={styles.loadingSearch}>
@@ -187,7 +186,7 @@ const SearchMovie = ({ placeholder = "Search movies..." }) => {
                   </Link>
                 ))}
               </>
-            ) : query.length > 0 ? ( // Changed from > 2 to > 0
+            ) : query.length > 0 ? ( 
               <div className={styles.noResults}>
                 <span>No movies found for "{query}"</span>
               </div>
